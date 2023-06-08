@@ -1,5 +1,5 @@
 ---
-title: "introduction"
+title: "Introduction to the USTerritoryMapping Package"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{introduction}
@@ -64,8 +64,8 @@ colors.census <- c("Less than 5%" = "#feebe2",
 ```
 
 
-```{r}
-map1_categorical(data = census, 
+```{r, warnings = FALSE, message = FALSE, eval = FALSE}
+map1_categorical(data = census.uninsured19, 
                  join_var = "STUSPS", 
                  fill_var = "Percent.Cat", 
                  fill_color = colors.census, 
@@ -74,12 +74,14 @@ map1_categorical(data = census,
                  save.filepath = "saved-maps/map1-uninsure.png")
 ```
 
+![](saved-maps/map1-uninsure.png){width=850px}
+
 Let's say we wanted to add a border to highlight specific states. We'll first define a vector of IDs and then use the border_ids parameter.
 
-```{r}
+```{r, warnings = FALSE, message = FALSE, eval = FALSE}
 border <- c("OR", "WI", "VA", "VI")
 
-map1_categorical(data = census, 
+map1_categorical(data = census.uninsured19, 
                  join_var = "STUSPS", 
                  fill_var = "Percent.Cat", 
                  fill_color = colors.census, 
@@ -88,14 +90,16 @@ map1_categorical(data = census,
                  border_ids = border,
                  border_color = "red",
                  border_linewidth = 1,
-                 save.filepath = "saved-maps/map1-uninsure.png")
+                 save.filepath = "saved-maps/map1-uninsure2.png")
 ```
+
+![](saved-maps/map1-uninsure2.png){width=850px}
 
 ## Using CDC Cardiovascular Disease Mortality Data
 
 We highlight the additional option of removing the inset box by specifying inset_box_color = "white". 
 
-```{r}
+```{r, warnings = FALSE, message = FALSE, eval = FALSE}
 colors.cdc <- c("Q1 (166 to < 198)" = "#ffffcc",
                  "Q2 (198 to < 215)" = "#a1dab4",
                  "Q3 (215 to < 248)" = "#41b6c4",
@@ -112,22 +116,23 @@ map1_categorical(data = cdc.cvd,
                  border_ids = border,
                  border_color = "red",
                  border_linewidth = 1.5,
-                 save.filepath = "saved_maps/map1-cvd.png") 
+                 save.filepath = "saved-maps/map1-cvd.png") 
 ```
 
+![](saved-maps/map1-cvd.png){width=850px}
 
 # Mapping US with Territory Labels
 
 You may also want a map with the territory labels filled by value rather than the geometries.
 
-```{r}
+```{r, warnings = FALSE, message = FALSE, eval = FALSE}
 colors.census <- c("Less than 5%" = "#feebe2", 
                     "5% to <10%" = "#f768a1", 
                     "10% or Greater" = "#7a0177")
 
 border <- c("OR", "WI", "VA", "VI")
 
-map2_categorical(data = census, 
+map2_categorical(data = census.uninsured19, 
                  join_var = "STUSPS", 
                  fill_var = "Percent.Cat", 
                  fill_color = colors.census, 
@@ -139,9 +144,11 @@ map2_categorical(data = census,
                  save.filepath = "saved-maps/map2-uninsure.png")
 ```
 
+![](saved-maps/map2-uninsure.png){width=850px}
+
 Note that the territory labels cannot be highlighted, even when specified in the border ID vector.
 
-```{r}
+```{r, warnings = FALSE, message = FALSE, eval = FALSE}
 colors.cdc <- c("Q1 (166 to < 198)" = "#ffffcc",
                  "Q2 (198 to < 215)" = "#a1dab4",
                  "Q3 (215 to < 248)" = "#41b6c4",
@@ -160,3 +167,5 @@ map2_categorical(data = cdc.cvd,
                  border_linewidth = 1.5,
                  save.filepath = "saved_maps/map2-cvd.png") 
 ```
+
+![](saved-maps/map2-cvd.png){width=850px}
