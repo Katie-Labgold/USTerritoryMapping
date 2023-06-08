@@ -7,3 +7,6 @@ Initial release includes two functions for choropleth mapping a categorical vari
 Code used to develop the package is also provided, allowing folks to refine the code to their own specific needs as interested.
 
 Any feedback is welcome. Happy mapping!
+
+# Installation
+
