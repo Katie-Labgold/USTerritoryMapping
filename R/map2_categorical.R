@@ -1,6 +1,61 @@
-# Code for map2_categorical function
-# Last update 2023-06-04
-# K Labgold
+#' Categorical choropleth US map with territory labels
+#' 
+#' This function allows for choropleth mapping of a predefined categorical variable
+#' for territory labels. See `map1_categorical()` for choropleth mapping of 
+#' territory geometries.
+#' 
+#' @param data Data frame that already includes the fill variable as a factor. See example code/vignette for more detail.
+#' @param join_var Variable to join with two letter state/territory USPS code (e.g. VI for Virgin Islands).
+#' @param fill_var Categorical mapping variable entered as "variable".
+#' @param fill_color Values for `scale_fill_manual()`. Recommended to prepare with labels, see example.
+#' @param fill_linewidth State and territory geometry border line width. Default linewidth = 0.8.
+#' @param fill_linecolor State and territory geometry border line color. Default color = "black".
+#' @param legend_name Legend title entered as a string.
+#' @param inset_box_color Color of inset box for HI, AK, and territories. Set as "white" to remove border.
+#' @param title Figure title entered as a string.
+#' @param border_ids List of state and territory two letter USPS codes for option to outline specific states and territories. Note that border will not color for territory labels.
+#' @param border_color Color of optional state highlight border.
+#' @param border_linewidth Linewidth of optional state highlight border. Default linewidth = 1.
+#' @param save.filepath File path for saving plot as "path/image.png".  
+#' @export
+#' @examples 
+#' # Example 1 Using Census Insurance Data
+#' colors.census <- c("Less than 5%" = "#feebe2", 
+#'                    "5% to <10%" = "#f768a1", 
+#'                    "10% or Greater" = "#7a0177")
+#'
+#' border <- c("OR", "WI", "VA", "VI") # VI included in list, but note that label will not outline.
+#'
+#' map2_categorical(data = census, 
+#'                 join_var = "STUSPS", 
+#'                 fill_var = "Percent.Cat", 
+#'                 fill_color = colors.census, 
+#'                 legend_name = "Percent Uninsured",
+#'                 title = "Figure 1. Percent Uninsured, Ages <19 Years",
+#'                 border_ids = border,
+#'                 border_color = "red",
+#'                 border_linewidth = 1,
+#'                 save.filepath = "saved_maps/map1-test.png")
+#'
+#' # Example 2 Using CDC Cardiovascular Data 
+#' colors.cdc <- c("Q1 (166 to < 198)" = "#ffffcc",
+#'                 "Q2 (198 to < 215)" = "#a1dab4",
+#'                 "Q3 (215 to < 248)" = "#41b6c4",
+#'                 "Q4 (248 to 326)" = "#225ea8")
+#'
+#'map2_categorical(data = cdc.cvd, 
+#'                 join_var = "LocationAbbr",
+#'                 fill_var = "data.cat", 
+#'                 fill_color = colors.cdc, 
+#'                 fill_linewidth = 1.2,
+#'                 fill_linecolor = "darkgrey",
+#'                 inset_box_color = "white",
+#'                 legend_name = "CVD per 100,000",
+#'                 border_ids = border,
+#'                 border_color = "red",
+#'                 border_linewidth = 1.5,
+#'                 save.filepath = "saved_maps/cdc-map1-test.png")
+
 
 map2_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidth = 0.8, fill_linecolor = "black",
                              legend_name = NULL, inset_box_color = "black",
