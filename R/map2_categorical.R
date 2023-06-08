@@ -26,7 +26,7 @@
 #'
 #' border <- c("OR", "WI", "VA", "VI") # VI included in list, but note that label will not outline.
 #'
-#' map2_categorical(data = census, 
+#' map2_categorical(data = census.uninsured19, 
 #'                 join_var = "STUSPS", 
 #'                 fill_var = "Percent.Cat", 
 #'                 fill_color = colors.census, 
@@ -84,7 +84,7 @@ map2_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
     ) +
     
     geom_sf(
-      data = all.geo.census[all.geo.data$group == "mainland" & all.geo.data$STUSPS %in% border_ids, ],
+      data = all.geo.data[all.geo.data$group == "mainland" & all.geo.data$STUSPS %in% border_ids, ],
       fill = NA,
       colour = border_color, 
       linewidth = border_linewidth
@@ -123,7 +123,7 @@ map2_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
                       na.value = "grey80",
                       name = legend_name) +
     geom_sf(
-      data = all.geo.census[all.geo.data$group == "AK" & all.geo.data$STUSPS %in% border_ids, ],
+      data = all.geo.data[all.geo.data$group == "AK" & all.geo.data$STUSPS %in% border_ids, ],
       fill = NA,
       colour = border_color, 
       linewidth = border_linewidth
@@ -154,7 +154,7 @@ map2_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
                       na.value = "grey80",
                       name = legend_name) +
     geom_sf(
-      data = all.geo.census[all.geo.data$group == "HI" & all.geo.data$STUSPS %in% border_ids, ],
+      data = all.geo.data[all.geo.data$group == "HI" & all.geo.data$STUSPS %in% border_ids, ],
       fill = NA,
       colour = border_color, 
       linewidth = border_linewidth
@@ -183,8 +183,8 @@ map2_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
       colour = "white"
     ) +
     geom_sf_label(aes(label = STUSPS,
-                      fill = fill_var),
-                  size = 5) +
+                      fill = get(fill_var)),
+                  lwd = 5) +
     scale_fill_manual(values = fill_color,
                       na.value = "grey80",
                       name = legend_name) +
@@ -212,8 +212,8 @@ map2_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
       colour = "white"
     ) +
     geom_sf_label(aes(label = STUSPS,
-                      fill = fill_var),
-                      size = 5) +
+                      fill = get(fill_var)),
+                      lwd = 5) +
     scale_fill_manual(values = fill_color,
                       na.value = "grey80",
                       name = legend_name) +
@@ -241,8 +241,8 @@ map2_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
       colour = "white"
     ) +
     geom_sf_label(aes(label = STUSPS,
-                      fill = fill_var),
-                      size = 5) +
+                      fill = get(fill_var)),
+                      lwd = 5) +
     scale_fill_manual(values = fill_color,
                       na.value = "grey80",
                       name = legend_name) +
@@ -270,8 +270,8 @@ map2_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
       colour = "white"
     ) +
     geom_sf_label(aes(label = STUSPS,
-                      fill = fill_var),
-                  size = 5) +
+                      fill = get(fill_var)),
+                      lwd = 5) +
     scale_fill_manual(values = fill_color,
                       na.value = "grey80",
                       name = legend_name) +
@@ -300,8 +300,8 @@ map2_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
       colour = "white"
     ) +
     geom_sf_label(aes(label = STUSPS,
-                      fill = fill_var),
-                      size = 5) +
+                      fill = get(fill_var)),
+                      lwd = 5) +
     scale_fill_manual(values = fill_color,
                       na.value = "grey80",
                       name = legend_name) +

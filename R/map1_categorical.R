@@ -26,7 +26,7 @@
 #'
 #' border <- c("OR", "WI", "VA", "VI")
 #'
-#' map1_categorical(data = census, 
+#' map1_categorical(data = census.uninsured19, 
 #'                 join_var = "STUSPS", 
 #'                 fill_var = "Percent.Cat", 
 #'                 fill_color = colors.census, 
@@ -84,7 +84,7 @@ map1_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
     ) +
     
     geom_sf(
-      data = all.geo.census[all.geo.data$group == "mainland" & all.geo.data$STUSPS %in% border_ids, ],
+      data = all.geo.data[all.geo.data$group == "mainland" & all.geo.data$STUSPS %in% border_ids, ],
       fill = NA,
       colour = border_color, 
       linewidth = border_linewidth
@@ -123,7 +123,7 @@ map1_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
                       na.value = "grey80",
                       name = legend_name) +
     geom_sf(
-      data = all.geo.census[all.geo.data$group == "AK" & all.geo.data$STUSPS %in% border_ids, ],
+      data = all.geo.data[all.geo.data$group == "AK" & all.geo.data$STUSPS %in% border_ids, ],
       fill = NA,
       colour = border_color, 
       linewidth = border_linewidth
@@ -154,7 +154,7 @@ map1_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
                       na.value = "grey80",
                       name = legend_name) +
     geom_sf(
-      data = all.geo.census[all.geo.data$group == "HI" & all.geo.data$STUSPS %in% border_ids, ],
+      data = all.geo.data[all.geo.data$group == "HI" & all.geo.data$STUSPS %in% border_ids, ],
       fill = NA,
       colour = border_color, 
       linewidth = border_linewidth
@@ -186,7 +186,7 @@ map1_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
                       na.value = "grey80",
                       name = legend_name) +
     geom_sf(
-      data = all.geo.census[all.geo.data$group == "GU" & all.geo.data$STUSPS %in% border_ids, ],
+      data = all.geo.data[all.geo.data$group == "GU" & all.geo.data$STUSPS %in% border_ids, ],
       fill = NA,
       colour = border_color, 
       linewidth = border_linewidth
@@ -218,7 +218,7 @@ map1_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
                       na.value = "grey80",
                       name = legend_name) +
     geom_sf(
-      data = all.geo.census[all.geo.data$group == "AS" & all.geo.data$STUSPS %in% border_ids, ],
+      data = all.geo.data[all.geo.data$group == "AS" & all.geo.data$STUSPS %in% border_ids, ],
       fill = NA,
       colour = border_color, 
       linewidth = border_linewidth
@@ -250,7 +250,7 @@ map1_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
                       na.value = "grey80",
                       name = legend_name) +
     geom_sf(
-      data = all.geo.census[all.geo.data$group == "MP" & all.geo.data$STUSPS %in% border_ids, ],
+      data = all.geo.data[all.geo.data$group == "MP" & all.geo.data$STUSPS %in% border_ids, ],
       fill = NA,
       colour = border_color, 
       linewidth = border_linewidth
@@ -282,7 +282,7 @@ map1_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
                       na.value = "grey80",
                       name = legend_name) +
     geom_sf(
-      data = all.geo.census[all.geo.data$group == "PR" & all.geo.data$STUSPS %in% border_ids, ],
+      data = all.geo.data[all.geo.data$group == "PR" & all.geo.data$STUSPS %in% border_ids, ],
       fill = NA,
       colour = border_color, 
       linewidth = border_linewidth
@@ -313,7 +313,7 @@ map1_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
                       na.value = "grey80",
                       name = legend_name) +
     geom_sf(
-      data = all.geo.census[all.geo.data$group == "VI.stt_stj" & all.geo.data$STUSPS %in% border_ids, ],
+      data = all.geo.data[all.geo.data$group == "VI.stt_stj" & all.geo.data$STUSPS %in% border_ids, ],
       fill = NA,
       colour = border_color, 
       linewidth = border_linewidth
@@ -343,7 +343,7 @@ map1_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
                       na.value = "grey80",
                       name = legend_name) +
     geom_sf(
-      data = all.geo.census[all.geo.data$group == "VI.stx" & all.geo.data$STUSPS %in% border_ids, ],
+      data = all.geo.data[all.geo.data$group == "VI.stx" & all.geo.data$STUSPS %in% border_ids, ],
       fill = NA,
       colour = border_color, 
       linewidth = border_linewidth
@@ -501,8 +501,6 @@ map1_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
       height = 0.1) +
     
     draw_grob(rect) 
-  
-  plot
   
   save_plot(filename = save.filepath,
             plot = plot,
