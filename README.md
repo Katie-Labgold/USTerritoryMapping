@@ -9,4 +9,4 @@ Code used to develop the package is also provided, allowing folks to refine the 
 Any feedback is welcome. Happy mapping!
 
 # Installation
-
+devtools::install_github("Katie-Labgold/USTerritoryMapping")
