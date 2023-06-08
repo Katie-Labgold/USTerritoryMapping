@@ -1,9 +1,8 @@
 Package: USTerritoryMapping
 Title: Simple categorical choropleth maps of US States, DC, and Territories
 Version: 0.0.0.9000
-Authors@R: 
-    person("Katie", "Labgold", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0001-6192-5822"))
+Author: Katie Labgold <katie.labgold@alumni.emory.edu>
+Maintainer: Katie Labgold <katie.labgold@alumni.emory.edu>
 Description: This package includes two functions for choropleth mapping a categorical variable at the US state and territory level. map1_categorical() allows for mapping of territory geometries, while map2_categorical() allows for mapping of territory labels.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
