@@ -4,7 +4,7 @@ Something I hear a lot as an applied territorial epidemiologist is that the terr
 
 Initial release includes two functions for choropleth mapping a categorical variable at the state and territory level. `map1_categorical()` allows for mapping of territory geometries, while `map2_categorical()` allows for mapping of territory labels.
 
-Code used to develop the package is also provided, allowing folks to refine the code to their own specific needs as interested.
+[Vignette](http://htmlpreview.github.io/?https://github.com/Katie-Labgold/USTerritoryMapping/blob/main/doc/introduction.html)
 
 Any feedback is welcome. Happy mapping!
 
