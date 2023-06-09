@@ -16,7 +16,8 @@
 #' @param border_ids List of state and territory two letter USPS codes for option to outline specific states and territories.
 #' @param border_color Color of optional state highlight border.
 #' @param border_linewidth Linewidth of optional state highlight border. Default linewidth = 1.
-#' @param save.filepath File path for saving plot as "path/image.png".  
+#' @param save.filepath File path for saving plot as "path/image.png".
+#' @import dplyr ggplot2 sf cowplot extrafont grid 
 #' @export
 #' @examples 
 #' # Example 1 Using Census Insurance Data

@@ -60,7 +60,7 @@ colors.census <- c("Less than 5\%" = "#feebe2",
 
 border <- c("OR", "WI", "VA", "VI")
 
-map1_categorical(data = census, 
+map1_categorical(data = census.uninsured19, 
                 join_var = "STUSPS", 
                 fill_var = "Percent.Cat", 
                 fill_color = colors.census, 

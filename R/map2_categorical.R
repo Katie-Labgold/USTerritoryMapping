@@ -17,6 +17,7 @@
 #' @param border_color Color of optional state highlight border.
 #' @param border_linewidth Linewidth of optional state highlight border. Default linewidth = 1.
 #' @param save.filepath File path for saving plot as "path/image.png".  
+#' @import dplyr ggplot2 sf cowplot extrafont grid  
 #' @export
 #' @examples 
 #' # Example 1 Using Census Insurance Data
@@ -62,6 +63,7 @@ map2_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
                              title = "",
                              border_ids = NULL, border_color = NULL, border_linewidth = 1,
                              save.filepath){
+  
   
   all.geo.data <- all.geo %>%
     left_join(data, by = c("STUSPS" = join_var))

@@ -60,7 +60,7 @@ colors.census <- c("Less than 5\%" = "#feebe2",
 
 border <- c("OR", "WI", "VA", "VI") # VI included in list, but note that label will not outline.
 
-map2_categorical(data = census, 
+map2_categorical(data = census.uninsured19, 
                 join_var = "STUSPS", 
                 fill_var = "Percent.Cat", 
                 fill_color = colors.census, 
