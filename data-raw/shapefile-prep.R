@@ -116,3 +116,6 @@ all.geo <- mainland %>%
 rm(mainland, HI, AK, PR, GU, MP, AS, VI.stx, VI.stt_stj)
 
 rm(us)
+
+# Make internal data
+##usethis::use_data(all.geo, internal = TRUE, compress = TRUE)
