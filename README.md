@@ -10,5 +10,7 @@ Any feedback is welcome. Happy mapping!
 
 # Installation
 ```
+#install.packages("devtools")
+library(devtools)
 devtools::install_github("Katie-Labgold/USTerritoryMapping")
 ```
