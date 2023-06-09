@@ -8,3 +8,6 @@ hexSticker::sticker(
   p_color = "#7DBC8E", h_fill = "#FFF9F2", h_color = "#F3BA42",
   dpi = 320, filename = "man/figures/logo.png"
 )
+
+magick::image_read("man/figures/logo.png")
+magick::image_read("man/figures/logov2.png")
