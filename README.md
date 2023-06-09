@@ -8,7 +8,7 @@ Initial release includes two functions for choropleth mapping a categorical vari
 
 Any feedback is welcome. Happy mapping!
 
-![](man/figures/logov2.png)
+![](man/figures/logov2.png){width=150px}
 
 # Installation
 ```
