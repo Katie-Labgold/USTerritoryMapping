@@ -10,6 +10,8 @@ Any feedback is welcome. Happy mapping!
 
 ![](man/figures/logov2.png)
 
+Thank you to Dr. Musheng Alishahi, Liz Lamere, and Dr. Elizabeth Slocum for their feedback in developing and testing this package.
+
 # Installation
 ```
 #install.packages("devtools")
