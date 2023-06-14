@@ -168,7 +168,7 @@ map2_categorical(data = cdc.cvd,
                  border_ids = border,
                  border_color = "red",
                  border_linewidth = 1.5,
-                 save.filepath = "saved_maps/map2-cvd.png") 
+                 save.filepath = "saved-maps/map2-cvd.png") 
 ```
 
 ![](saved-maps/map2-cvd.png){width=850px}
