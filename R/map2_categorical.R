@@ -329,7 +329,7 @@ map2_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
       {
         ak.map +
           theme(legend.position = "none",
-                plot.background = element_rect(color = "black", linewidth = 0.7), # if you want a border
+                plot.background = element_rect(color = inset_box_color, linewidth = 0.7), # if you want a border
                 plot.margin = unit(c(t = 0.5, r = 0.5, b = 0.5, l = 0.5), "cm")) # testing different margins)
       },
       # The distance along a (0,1) x-axis to draw the left edge of the plot
@@ -345,7 +345,7 @@ map2_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
       {
         hi.map +
           theme(legend.position = "none",
-                plot.background = element_rect(color = "black", linewidth = 0.7),
+                plot.background = element_rect(color = inset_box_color, linewidth = 0.7),
                 plot.margin = unit(c(0.5, 0.5, 0.5, 0.5), "cm")) # testing different margins)
       },
       # The distance along a (0,1) x-axis to draw the left edge of the plot
