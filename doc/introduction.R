@@ -32,6 +32,7 @@ colors.census <- c("Less than 5%" = "#feebe2",
 #                   fill_var = "Percent.Cat",
 #                   fill_color = colors.census,
 #                   legend_name = "Percent Uninsured",
+#                   territory_label_color = "black",
 #                   title = "Figure 1. Percent Uninsured, Ages <19 Years",
 #                   save.filepath = "saved-maps/map1-uninsure.png")
 
@@ -62,6 +63,7 @@ colors.census <- c("Less than 5%" = "#feebe2",
 #                   fill_linewidth = 1.2,
 #                   fill_linecolor = "black",
 #                   inset_box_color = "white",
+#                   territory_label_color = "white",
 #                   legend_name = "CVD Mortality per 100,000",
 #                   border_ids = border,
 #                   border_color = "red",
@@ -103,5 +105,5 @@ colors.census <- c("Less than 5%" = "#feebe2",
 #                   border_ids = border,
 #                   border_color = "red",
 #                   border_linewidth = 1.5,
-#                   save.filepath = "saved_maps/map2-cvd.png")
+#                   save.filepath = "saved-maps/map2-cvd.png")
 

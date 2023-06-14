@@ -18,6 +18,7 @@ knitr::opts_chunk$set(
 
 This vignette gives an overview of the USTerritoryMapping package, which is seeks to make creating categorical choropleth maps of the US that include the US territories a little bit easier!
 
+First load the package. 
 ```{r setup}
 library(USTerritoryMapping)
 ```
@@ -70,6 +71,7 @@ map1_categorical(data = census.uninsured19,
                  fill_var = "Percent.Cat", 
                  fill_color = colors.census, 
                  legend_name = "Percent Uninsured",
+                 territory_label_color = "black",
                  title = "Figure 1. Percent Uninsured, Ages <19 Years",
                  save.filepath = "saved-maps/map1-uninsure.png")
 ```
@@ -95,9 +97,10 @@ map1_categorical(data = census.uninsured19,
 
 ![](saved-maps/map1-uninsure2.png){width=850px}
 
+
 ## Using CDC Cardiovascular Disease Mortality Data
 
-We highlight the additional option of removing the inset box by specifying inset_box_color = "white". 
+We highlight the additional option of removing the inset box by specifying `inset_box_color = "white"`. We also highlight the additional option of removing the territory labels by specifying `territory_label_color = "white"`.
 
 ```{r, warnings = FALSE, message = FALSE, eval = FALSE}
 colors.cdc <- c("Q1 (166 to < 198)" = "#ffffcc",
@@ -112,6 +115,7 @@ map1_categorical(data = cdc.cvd,
                  fill_linewidth = 1.2,
                  fill_linecolor = "black",
                  inset_box_color = "white",
+                 territory_label_color = "white",
                  legend_name = "CVD Mortality per 100,000",
                  border_ids = border,
                  border_color = "red",
@@ -165,7 +169,7 @@ map2_categorical(data = cdc.cvd,
                  border_ids = border,
                  border_color = "red",
                  border_linewidth = 1.5,
-                 save.filepath = "saved_maps/map2-cvd.png") 
+                 save.filepath = "saved-maps/map2-cvd.png") 
 ```
 
 ![](saved-maps/map2-cvd.png){width=850px}

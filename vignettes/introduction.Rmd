@@ -97,6 +97,7 @@ map1_categorical(data = census.uninsured19,
 
 ![](saved-maps/map1-uninsure2.png){width=850px}
 
+
 ## Using CDC Cardiovascular Disease Mortality Data
 
 We highlight the additional option of removing the inset box by specifying `inset_box_color = "white"`. We also highlight the additional option of removing the territory labels by specifying `territory_label_color = "white"`.
