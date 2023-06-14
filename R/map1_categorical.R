@@ -12,6 +12,7 @@
 #' @param fill_linecolor State and territory geometry border line color. Default color = "black".
 #' @param legend_name Legend title entered as a string.
 #' @param inset_box_color Color of inset box for HI, AK, and territories. Set as "white" to remove border.
+#' @param territory_label_color Color of territory labels. Set as "white" to remove label.
 #' @param title Figure title entered as a string.
 #' @param border_ids List of state and territory two letter USPS codes for option to outline specific states and territories.
 #' @param border_color Color of optional state highlight border.
@@ -60,6 +61,7 @@
 
 map1_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidth = 0.8, fill_linecolor = "black",
                              legend_name = NULL, inset_box_color = "black",
+                             territory_label_color = "black",
                              title = "",
                              border_ids = NULL, border_color = NULL, border_linewidth = 1,
                              save.filepath){
@@ -204,7 +206,7 @@ map1_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
     ) +
     theme(
       text = element_text(family = "Arial")
-    ) 
+    )
   
   ## American Samoa ----
   as.map <- all.geo.data %>%
@@ -375,6 +377,12 @@ map1_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
   
   # Final Map ----
   plot <-  ggdraw(main.map) +
+    # territory labels ----
+    draw_label("MP", x = 0.12, y = 0.24, fontface = "bold", color = territory_label_color) +
+    draw_label("GU", x = 0.175, y = 0.24, fontface = "bold", color = territory_label_color) + 
+    draw_label("AS", x = 0.52, y = 0.034, fontface = "bold", color = territory_label_color) +
+    draw_label("VI", x = 0.893, y = 0.05, fontface = "bold", color = territory_label_color) +
+    draw_label("PR", x = 0.89, y = 0.2, fontface = "bold", color = territory_label_color) +
     # Adding AK
     draw_plot(
       {
