@@ -13,6 +13,7 @@ map1_categorical(
   fill_linecolor = "black",
   legend_name = NULL,
   inset_box_color = "black",
+  territory_label_color = "black",
   title = "",
   border_ids = NULL,
   border_color = NULL,
@@ -36,6 +37,8 @@ map1_categorical(
 \item{legend_name}{Legend title entered as a string.}
 
 \item{inset_box_color}{Color of inset box for HI, AK, and territories. Set as "white" to remove border.}
+
+\item{territory_label_color}{Color of territory labels. Set as "white" to remove label.}
 
 \item{title}{Figure title entered as a string.}
 
