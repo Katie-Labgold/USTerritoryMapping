@@ -72,7 +72,7 @@ map1_categorical(data = census.uninsured19,
                 border_ids = border,
                 border_color = "red",
                 border_linewidth = 1,
-                save.filepath = "saved_maps/map1-test.png")
+                save.filepath = "saved-maps/map1-test.png")
 
 # Example 2 Using CDC Cardiovascular Data 
 colors.cdc <- c("Q1 (166 to < 198)" = "#ffffcc",
@@ -91,5 +91,5 @@ map1_categorical(data = cdc.cvd,
                 border_ids = border,
                 border_color = "red",
                 border_linewidth = 1.5,
-                save.filepath = "saved_maps/cdc-map1-test.png")                
+                save.filepath = "saved-maps/cdc-map1-test.png")                
 }
