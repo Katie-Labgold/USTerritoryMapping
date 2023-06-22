@@ -80,7 +80,8 @@ map1_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
     ) +
     scale_fill_manual(values = fill_color,
                       na.value = "grey80",
-                      name = legend_name) +
+                      name = legend_name,
+                      drop = FALSE) +
     
     labs(title = title,
          #caption = "Caption"
