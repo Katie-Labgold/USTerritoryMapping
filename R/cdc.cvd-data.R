@@ -7,7 +7,12 @@
 #' 
 #' @usage data(cdc.cvd)
 #' 
-#' @format An object of class
+#' @format A data frame with 51 observations (50 US States & D.C.) and 12 variables:
+#' \describe{
+#'     \item{LocationAbbr}{2-letter US Postal Service Code}
+#'     \item{data.cat}{the CVD mortality rate per 100,000 persons, categorized as a factor} 
+#' 
+#' }
 #' 
 #' @keywords datasets
 #' 
