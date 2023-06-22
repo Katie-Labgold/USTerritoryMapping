@@ -1,7 +1,9 @@
 #' Percentage of individuals 19 years of age and younger who are uninsured
 #' 
-#' Data set with 2-letter US postal service state code, FIPS code, and state name for easier
-#' identification of 2-letter US postal service code.
+#' Data set with Percentage of individuals 19 years of age and younger who are uninsured.
+#' State & D.C. data came from 2020 American Community Survey ("B18135_002", "B18135_007", "B18135_012") and territory data came from
+#' island area files 2020 Decennial Census ("DP3_0071P"). Note this is not a perfect match, and was created
+#' for example purposes.
 #' 
 #' @docType data
 #' 
