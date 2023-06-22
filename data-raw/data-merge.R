@@ -82,14 +82,12 @@ all.geo.census <- all.geo %>%
 cdc.cvd <- rio::import("cdcwonder_cardiovasculardisease.csv") %>%
             filter(!is.na(ID), # remove empty rows
                    LocationAbbr != "US") %>% # remove total US value
-            dplyr::select(ID, Description, LocationAbbr, LocationDesc, DataSource,
-                          Topic, Data_Value_Unit, Data_Value_Type, Data_Value,
-                          Low_Confidence_Limit, High_Confidence_Limit)  %>%
+            dplyr::select(LocationAbbr, Data_Value)  %>%
             mutate(data.cat = case_when(
               Data_Value < 198 ~ "Q1 (166 to < 198)",
               Data_Value >= 198 & Data_Value < 215 ~ "Q2 (198 to < 215)",
               Data_Value >= 215 & Data_Value < 248 ~ "Q3 (215 to < 248)",
-              Data_Value >= 248 & Data_Value < 400 ~ "Q4 (248 to 326)",
+              Data_Value >= 248 & Data_Value < 400 ~ "Q4 (248 to 326)"
             ))
 
 
