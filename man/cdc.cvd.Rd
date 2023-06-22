@@ -5,7 +5,12 @@
 \alias{cdc.cvd}
 \title{CDC Cardiovascular Mortality Rate Data for 50 US States and D.C.}
 \format{
-An object of class
+A data frame with 51 observations (50 US States & D.C.) and 12 variables:
+\describe{
+\item{LocationAbbr}{2-letter US Postal Service Code}
+\item{data.cat}{the CVD mortality rate per 100,000 persons, categorized as a factor}
+
+}
 }
 \source{
 \href{https://nccd.cdc.gov/cdi/rdPage.aspx?rdReport=DPH_CDI.ExploreByTopic&islTopic=CVD&islYear=9999&go=GO}{CDC Wonder}
