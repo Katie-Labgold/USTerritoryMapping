@@ -100,7 +100,7 @@ map2_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
       # legend.justification defines the edge of the legend that the legend.position coordinates refer to
       legend.justification = c(0, 1),
       # Set the legend flush with the left side of the plot, and just slightly below the top of the plot
-      legend.position = c(0.97, 1.15)
+      legend.position = c(0.93, 1.23)
     ) +
     theme(
       plot.background = element_rect(fill = "white", colour = "white"),
@@ -124,7 +124,8 @@ map2_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
     ) +
     scale_fill_manual(values = fill_color,
                       na.value = "grey80",
-                      name = legend_name) +
+                      name = legend_name,
+                      drop = FALSE) +
     geom_sf(
       data = all.geo.data[all.geo.data$group == "AK" & all.geo.data$STUSPS %in% border_ids, ],
       fill = NA,
@@ -155,7 +156,8 @@ map2_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
     ) +
     scale_fill_manual(values = fill_color,
                       na.value = "grey80",
-                      name = legend_name) +
+                      name = legend_name,
+                      drop = FALSE) +
     geom_sf(
       data = all.geo.data[all.geo.data$group == "HI" & all.geo.data$STUSPS %in% border_ids, ],
       fill = NA,
@@ -190,7 +192,8 @@ map2_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
                   lwd = 5) +
     scale_fill_manual(values = fill_color,
                       na.value = "grey80",
-                      name = legend_name) +
+                      name = legend_name,
+                      drop = FALSE) +
     
     # Prevent ggplot from slightly expanding the map limits beyond the bounding box of the spatial objects
     coord_sf(expand = FALSE) +
@@ -219,7 +222,8 @@ map2_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
                       lwd = 5) +
     scale_fill_manual(values = fill_color,
                       na.value = "grey80",
-                      name = legend_name) +
+                      name = legend_name,
+                      drop = FALSE) +
     
     # Prevent ggplot from slightly expanding the map limits beyond the bounding box of the spatial objects
     coord_sf(expand = FALSE) +
@@ -248,7 +252,8 @@ map2_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
                       lwd = 5) +
     scale_fill_manual(values = fill_color,
                       na.value = "grey80",
-                      name = legend_name) +
+                      name = legend_name,
+                      drop = FALSE) +
     
     # Prevent ggplot from slightly expanding the map limits beyond the bounding box of the spatial objects
     coord_sf(expand = FALSE) +
@@ -277,7 +282,8 @@ map2_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
                       lwd = 5) +
     scale_fill_manual(values = fill_color,
                       na.value = "grey80",
-                      name = legend_name) +
+                      name = legend_name,
+                      drop = FALSE) +
 
     # Prevent ggplot from slightly expanding the map limits beyond the bounding box of the spatial objects
     coord_sf(expand = FALSE) +
@@ -307,7 +313,8 @@ map2_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
                       lwd = 5) +
     scale_fill_manual(values = fill_color,
                       na.value = "grey80",
-                      name = legend_name) +
+                      name = legend_name,
+                      drop = FALSE) +
 
     # Prevent ggplot from slightly expanding the map limits beyond the bounding box of the spatial objects
     coord_sf(expand = FALSE) +

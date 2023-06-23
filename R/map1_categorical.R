@@ -101,7 +101,7 @@ map1_categorical <- function(data, join_var, fill_var, fill_color, fill_linewidt
       # legend.justification defines the edge of the legend that the legend.position coordinates refer to
       legend.justification = c(0, 1),
       # Set the legend flush with the left side of the plot, and just slightly below the top of the plot
-      legend.position = c(0.97, 1.15)
+      legend.position = c(0.93, 1.23)
     ) +
     theme(
       plot.background = element_rect(fill = "white", colour = "white"),
