@@ -4,8 +4,7 @@ Version: 0.0.0.9000
 Author: Katie Labgold <katie.labgold@alumni.emory.edu>
 Maintainer: Katie Labgold <katie.labgold@alumni.emory.edu>
 Description: This package includes two functions for choropleth mapping a categorical variable at the US state and territory level. map1_categorical() allows for mapping of territory geometries, while map2_categorical() allows for mapping of territory labels.
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
