@@ -17,9 +17,25 @@ table(census.uninsured19$Percent.Cat)
 head(census.uninsured19$STUSPS)
 
 ## -----------------------------------------------------------------------------
-class(cdc.cvd$data.cat)
+data("fips_codes")
+
+cdc.cvd <- fips_codes %>%
+              left_join(cdc.cvd, by = c("state" = "LocationAbbr")) %>%
+              mutate(data.cat = factor(
+                      case_when(
+                            Data_Value < 198 ~ "Q1 (166 to < 198)",
+                            Data_Value >= 198 & Data_Value < 215 ~ "Q2 (198 to < 215)",
+                            Data_Value >= 215 & Data_Value < 248 ~ "Q3 (215 to < 248)",
+                            Data_Value >= 248 & Data_Value < 400 ~ "Q4 (248 to 326)",
+                            is.na(Data_Value) ~ "Data Not Available"
+                      ),
+                      levels = c("Q1 (166 to < 198)", "Q2 (198 to < 215)",
+                                 "Q3 (215 to < 248)", "Q4 (248 to 326)", "Data Not Available")
+                  )
+               )
+
 table(cdc.cvd$data.cat)
-head(cdc.cvd$LocationAbbr)
+class(cdc.cvd$data.cat)
 
 ## -----------------------------------------------------------------------------
 colors.census <- c("Less than 5%" = "#feebe2", 
@@ -54,17 +70,18 @@ colors.census <- c("Less than 5%" = "#feebe2",
 #  colors.cdc <- c("Q1 (166 to < 198)" = "#ffffcc",
 #                   "Q2 (198 to < 215)" = "#a1dab4",
 #                   "Q3 (215 to < 248)" = "#41b6c4",
-#                   "Q4 (248 to 326)" = "#225ea8")
+#                   "Q4 (248 to 326)" = "#225ea8",
+#                   "Data Not Available" = "grey80")
 #  
 #  map1_categorical(data = cdc.cvd,
-#                   join_var = "LocationAbbr",
+#                   join_var = "state",
 #                   fill_var = "data.cat",
 #                   fill_color = colors.cdc,
 #                   fill_linewidth = 1.2,
 #                   fill_linecolor = "black",
 #                   inset_box_color = "white",
 #                   territory_label_color = "white",
-#                   legend_name = "CVD Mortality per 100,000",
+#                   legend_name = "CVD Mortality Rate\nper 100,000 persons",
 #                   border_ids = border,
 #                   border_color = "red",
 #                   border_linewidth = 1.5,
@@ -92,16 +109,17 @@ colors.census <- c("Less than 5%" = "#feebe2",
 #  colors.cdc <- c("Q1 (166 to < 198)" = "#ffffcc",
 #                   "Q2 (198 to < 215)" = "#a1dab4",
 #                   "Q3 (215 to < 248)" = "#41b6c4",
-#                   "Q4 (248 to 326)" = "#225ea8")
+#                   "Q4 (248 to 326)" = "#225ea8",
+#                   "Data Not Available" = "grey80")
 #  
 #  map2_categorical(data = cdc.cvd,
-#                   join_var = "LocationAbbr",
+#                   join_var = "state",
 #                   fill_var = "data.cat",
 #                   fill_color = colors.cdc,
 #                   fill_linewidth = 1.2,
 #                   fill_linecolor = "black",
 #                   inset_box_color = "white",
-#                   legend_name = "CVD Mortality per 100,000",
+#                   legend_name = "CVD Mortality Rate\nper 100,000 persons",
 #                   border_ids = border,
 #                   border_color = "red",
 #                   border_linewidth = 1.5,
