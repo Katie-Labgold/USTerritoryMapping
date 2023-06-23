@@ -75,10 +75,12 @@ map2_categorical(data = census.uninsured19,
 colors.cdc <- c("Q1 (166 to < 198)" = "#ffffcc",
                 "Q2 (198 to < 215)" = "#a1dab4",
                 "Q3 (215 to < 248)" = "#41b6c4",
-                "Q4 (248 to 326)" = "#225ea8")
+                "Q4 (248 to 326)" = "#225ea8",
+                "Data Not Available" = "grey80")
 
+#'# See vignette for data `cdc.cvd` preparation details
 map2_categorical(data = cdc.cvd, 
-                join_var = "LocationAbbr",
+                join_var = "state",
                 fill_var = "data.cat", 
                 fill_color = colors.cdc, 
                 fill_linewidth = 1.2,
