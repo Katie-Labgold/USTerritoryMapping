@@ -7,9 +7,8 @@
 \format{
 A data frame with 51 observations (50 US States & D.C.) and 12 variables:
 \describe{
+\item{Data_Value}{the CVD mortality rate per 100,000 persons, of class character}
 \item{LocationAbbr}{2-letter US Postal Service Code}
-\item{data.cat}{the CVD mortality rate per 100,000 persons, categorized as a factor}
-
 }
 }
 \source{
