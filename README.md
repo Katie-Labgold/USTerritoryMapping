@@ -10,7 +10,7 @@ Any feedback is welcome. Happy mapping!
 
 ![](man/figures/logov2.png)
 
-Thank you to Dr. Musheng Alishahi, Liz Lamere, and Dr. Elizabeth Slocum for their feedback in developing and testing this package.
+Thank you to Liz Lamere and Dr. Musheng Alishahi for their feedback in developing and testing this package.
 
 # Installation
 ```
