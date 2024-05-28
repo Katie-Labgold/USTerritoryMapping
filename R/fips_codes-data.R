@@ -19,7 +19,7 @@
 #' 
 #' @references Walker K, Herman M (2023). tidycensus: Load US Census Boundary and Attribute Data as 'tidyverse' and 'sf'-Ready Data Frames. R package version 1.4.1, https://walker-data.com/tidycensus/.
 #' 
-#' @source \href{https://walker-data.com/tidycensus/}{tidycensus package}
+#' @source <https://walker-data.com/tidycensus/>
 #' 
 #' @examples
 #' data(fips_codes)
