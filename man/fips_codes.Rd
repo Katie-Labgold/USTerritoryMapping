@@ -14,7 +14,7 @@ A data frame with 57 observations (50 US States, D.C., 5 territories, and minor 
 }
 }
 \source{
-\href{https://walker-data.com/tidycensus/}{tidycensus package}
+\url{https://walker-data.com/tidycensus/}
 }
 \usage{
 data(fips_codes)
