@@ -1,8 +1,26 @@
 Package: USTerritoryMapping
 Title: Simple categorical choropleth maps of US States, DC, and Territories
 Version: 0.0.0.9000
-Author: Katie Labgold <katie.labgold@alumni.emory.edu>
-Maintainer: Katie Labgold <katie.labgold@alumni.emory.edu>
+Authors@R: c(
+    person(given = c("Labgold", "Katie"), email = "katie.labgold@alumni.emory.edu", role = c("aut", "cre")),
+    person("Hadley", "Wickham", role = "ctb", comment = "Author of included dplyr, ggplot2, and stringr fragments"),
+    person("Romain", "Francois", role = "ctb", comment = "Author of included dplyr fragments"),
+    person("Lionel", "Henry", role = "ctb", comment = "Author of included dplyr and ggplot2 fragments"),
+    person("Kirill", "Müller", role = "ctb", comment = "Author of included dplyr and sf fragments"),
+    person("Vaughan", "David", role = "ctb", comment = "Copyright holder of included dplyr fragments"),
+    person("Chang", "Winston", role = "ctb", comment = "Author of included ggplot2 and extrafont fragments"),
+    person("Lin Pedersen", "Thomas", role = "ctb", comment = "Author of included ggplot2 fragments"),
+    person("Takahashi", "Kohske", role = "ctb", comment = "Author of included ggplot2 fragments"),
+    person("Chang", "Winston", role = "ctb", comment = "Author of included ggplot2 fragments"),
+    person("Wilke", "Claus O.", role = "ctb", comment = "Author of included ggplot2 and cowplot fragments"),
+    person("Woo", "Kara", role = "ctb", comment = "Author of included ggplot2 fragments"),
+    person("Yutani", "Hiroaki", role = "ctb", comment = "Author of included ggplot2 fragments"),
+    person("Dunnington", "Dewey", role = "ctb", comment = "Author of included ggplot2 fragments"),
+    person("van den Brand", "Teun", role = "ctb", comment = "Author of included ggplot2 fragments"),
+    person("Posit, PBC", role = "cph", comment = "Copyright holder of included dplyr, ggplot2, and stringr fragments"),
+    person("Pebesma", "Edzer", role = "ctb", comment = "Author and copyright holder of included sf fragments"),
+    person("Walker", "Kyle", role = c("ctb", "cph"), comment = "Author and copyright holder of included tidycensus fragments")
+    )
 Description: This package includes two functions for choropleth mapping a categorical variable at the US state and territory level. map1_categorical() allows for mapping of territory geometries, while map2_categorical() allows for mapping of territory labels.
 License: MIT + file LICENSE
 Encoding: UTF-8
@@ -14,8 +32,7 @@ Depends:
     ggplot2,
     sf,
     cowplot,
-    extrafont,
-    grid
+    extrafont
 LazyData: true
 Suggests: 
     knitr,
