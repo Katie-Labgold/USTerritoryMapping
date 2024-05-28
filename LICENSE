@@ -1,2 +1,12 @@
 YEAR: 2023
-COPYRIGHT HOLDER: USTerritoryMapping authors
+COPYRIGHT HOLDER: Katie Labgold
+
+The USTerritoryMapping Package includes other open source software components. The following is a list of these components with the link to CRAN R Package page that includes licensing links.
+
+- dplyr (https://cran.r-project.org/web/packages/dplyr/index.html)
+- ggplot2 (https://cran.r-project.org/web/packages/ggplot2/index.html)
+- sf (https://cran.r-project.org/web/packages/sf/index.html)
+- tidycensus (https://cran.r-project.org/web/packages/tidycensus/index.html)
+- stringr (https://cran.r-project.org/web/packages/stringr/index.html)
+- extrafont (https://cran.r-project.org/web/packages/extrafont/index.html)
+- cowplot (https://cran.r-project.org/web/packages/cowplot/index.html)
