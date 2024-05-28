@@ -32,7 +32,8 @@ Depends:
     ggplot2,
     sf,
     cowplot,
-    extrafont
+    extrafont,
+    grid
 LazyData: true
 Suggests: 
     knitr,
