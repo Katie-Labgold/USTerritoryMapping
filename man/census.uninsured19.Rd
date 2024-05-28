@@ -16,7 +16,7 @@ A data frame with 56 observations (50 US States, D.C., and 5 territories) and 5 
 }
 }
 \source{
-\href{https://walker-data.com/tidycensus/}{tidycensus package}
+<{https://walker-data.com/tidycensus/>
 }
 \usage{
 data(census.uninsured19)
