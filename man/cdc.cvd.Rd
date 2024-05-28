@@ -12,7 +12,7 @@ A data frame with 51 observations (50 US States & D.C.) and 12 variables:
 }
 }
 \source{
-\href{https://nccd.cdc.gov/cdi/rdPage.aspx?rdReport=DPH_CDI.ExploreByTopic&islTopic=CVD&islYear=9999&go=GO}{CDC Wonder}
+\url{https://nccd.cdc.gov/cdi/rdPage.aspx?rdReport=DPH_CDI.ExploreByTopic&islTopic=CVD&islYear=9999&go=GO}
 }
 \usage{
 data(cdc.cvd)
