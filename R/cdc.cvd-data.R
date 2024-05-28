@@ -17,7 +17,7 @@
 #' 
 #' @references Centers for Disease Control and Prevention, National Center for Chronic Disease Prevention and Health Promotion, Division of Population Health. Chronic Disease Indicators (CDI) Data [online]. [accessed Jun 22, 2023]. URL: https://nccd.cdc.gov/cdi.
 #' 
-#' @source \href{https://nccd.cdc.gov/cdi/rdPage.aspx?rdReport=DPH_CDI.ExploreByTopic&islTopic=CVD&islYear=9999&go=GO}{CDC Wonder}
+#' @source <https://nccd.cdc.gov/cdi/rdPage.aspx?rdReport=DPH_CDI.ExploreByTopic&islTopic=CVD&islYear=9999&go=GO>
 #' 
 #' @examples
 #' data(cdc.cvd)
