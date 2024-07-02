@@ -16,8 +16,8 @@ map1_categorical_county(data = census.uninsured19.co,
                         #border_ids = border,
                         #border_color = "red",
                         #border_linewidth = 0.5,
-                      #state_color = "black", 
-                      #state_linewidth = 0.75,
+                      state_color = "black", 
+                      state_linewidth = 1,
                         save.filepath = "saved-maps/map1-test-co.png")
 
 
