@@ -40,26 +40,7 @@
 #'                 border_linewidth = 1,
 #'                 save.filepath = "saved-maps/map1-test.png")
 #'
-#' # Example 2 Using CDC Cardiovascular Data 
-#' colors.cdc <- c("Q1 (166 to < 198)" = "#ffffcc",
-#'                 "Q2 (198 to < 215)" = "#a1dab4",
-#'                 "Q3 (215 to < 248)" = "#41b6c4",
-#'                 "Q4 (248 to 326)" = "#225ea8",
-#'                 "Data Not Available" = "grey80")
-#'
-#'# See vignette for data `cdc.cvd` preparation details
-#'map1_categorical(data = cdc.cvd, 
-#'                 join_var = "state",
-#'                 fill_var = "data.cat", 
-#'                 fill_color = colors.cdc, 
-#'                 fill_linewidth = 1.2,
-#'                 fill_linecolor = "darkgrey",
-#'                 inset_box_color = "white",
-#'                 legend_name = "CVD per 100,000",
-#'                 border_ids = border,
-#'                 border_color = "red",
-#'                 border_linewidth = 1.5,
-#'                 save.filepath = "saved-maps/cdc-map1-test.png")                
+              
 
 
 map1_categorical_county <- function(data, join_var, fill_var, fill_color, fill_linewidth = 0.8, fill_linecolor = "black",
@@ -67,10 +48,12 @@ map1_categorical_county <- function(data, join_var, fill_var, fill_color, fill_l
                              territory_label_color = "black",
                              title = "",
                              border_ids = NULL, border_color = NULL, border_linewidth = 1,
+                             state_color = "black", state_linewidth = 0.75,
                              save.filepath){
   
   all.geo.data <- all.geo.co %>%
-        left_join(data, by = c("STUSPS" = join_var))
+         mutate(GEOID = paste0(all.geo.co$STUSPS, all.geo.co$co)) %>%
+         left_join(data, by = c("GEOID" = join_var))
   
   main.map <- all.geo.data %>%
     filter(group == "mainland") %>%
@@ -91,7 +74,7 @@ map1_categorical_county <- function(data, join_var, fill_var, fill_color, fill_l
     ) +
     
     geom_sf(
-      data = all.geo.data[all.geo.data$group == "mainland" & all.geo.data$STUSPS %in% border_ids, ],
+      data = all.geo.data[all.geo.data$group == "mainland" & all.geo.data$GEOID %in% border_ids, ],
       fill = NA,
       colour = border_color, 
       linewidth = border_linewidth
@@ -130,7 +113,7 @@ map1_categorical_county <- function(data, join_var, fill_var, fill_color, fill_l
                       na.value = "grey80",
                       name = legend_name) +
     geom_sf(
-      data = all.geo.data[all.geo.data$group == "AK" & all.geo.data$STUSPS %in% border_ids, ],
+      data = all.geo.data[all.geo.data$group == "AK" & all.geo.data$GEOID %in% border_ids, ],
       fill = NA,
       colour = border_color, 
       linewidth = border_linewidth
@@ -161,7 +144,7 @@ map1_categorical_county <- function(data, join_var, fill_var, fill_color, fill_l
                       na.value = "grey80",
                       name = legend_name) +
     geom_sf(
-      data = all.geo.data[all.geo.data$group == "HI" & all.geo.data$STUSPS %in% border_ids, ],
+      data = all.geo.data[all.geo.data$group == "HI" & all.geo.data$GEOID %in% border_ids, ],
       fill = NA,
       colour = border_color, 
       linewidth = border_linewidth
@@ -193,7 +176,7 @@ map1_categorical_county <- function(data, join_var, fill_var, fill_color, fill_l
                       na.value = "grey80",
                       name = legend_name) +
     geom_sf(
-      data = all.geo.data[all.geo.data$group == "GU" & all.geo.data$STUSPS %in% border_ids, ],
+      data = all.geo.data[all.geo.data$group == "GU" & all.geo.data$GEOID %in% border_ids, ],
       fill = NA,
       colour = border_color, 
       linewidth = border_linewidth
@@ -225,7 +208,7 @@ map1_categorical_county <- function(data, join_var, fill_var, fill_color, fill_l
                       na.value = "grey80",
                       name = legend_name) +
     geom_sf(
-      data = all.geo.data[all.geo.data$group == "AS" & all.geo.data$STUSPS %in% border_ids, ],
+      data = all.geo.data[all.geo.data$group == "AS" & all.geo.data$GEOID %in% border_ids, ],
       fill = NA,
       colour = border_color, 
       linewidth = border_linewidth
@@ -257,7 +240,7 @@ map1_categorical_county <- function(data, join_var, fill_var, fill_color, fill_l
                       na.value = "grey80",
                       name = legend_name) +
     geom_sf(
-      data = all.geo.data[all.geo.data$group == "MP" & all.geo.data$STUSPS %in% border_ids, ],
+      data = all.geo.data[all.geo.data$group == "MP" & all.geo.data$GEOID %in% border_ids, ],
       fill = NA,
       colour = border_color, 
       linewidth = border_linewidth
@@ -289,7 +272,7 @@ map1_categorical_county <- function(data, join_var, fill_var, fill_color, fill_l
                       na.value = "grey80",
                       name = legend_name) +
     geom_sf(
-      data = all.geo.data[all.geo.data$group == "PR" & all.geo.data$STUSPS %in% border_ids, ],
+      data = all.geo.data[all.geo.data$group == "PR" & all.geo.data$GEOID %in% border_ids, ],
       fill = NA,
       colour = border_color, 
       linewidth = border_linewidth
@@ -320,7 +303,7 @@ map1_categorical_county <- function(data, join_var, fill_var, fill_color, fill_l
                       na.value = "grey80",
                       name = legend_name) +
     geom_sf(
-      data = all.geo.data[all.geo.data$group == "VI.stt_stj" & all.geo.data$STUSPS %in% border_ids, ],
+      data = all.geo.data[all.geo.data$group == "VI.stt_stj" & all.geo.data$GEOID %in% border_ids, ],
       fill = NA,
       colour = border_color, 
       linewidth = border_linewidth
@@ -350,7 +333,7 @@ map1_categorical_county <- function(data, join_var, fill_var, fill_color, fill_l
                       na.value = "grey80",
                       name = legend_name) +
     geom_sf(
-      data = all.geo.data[all.geo.data$group == "VI.stx" & all.geo.data$STUSPS %in% border_ids, ],
+      data = all.geo.data[all.geo.data$group == "VI.stx" & all.geo.data$GEOID %in% border_ids, ],
       fill = NA,
       colour = border_color, 
       linewidth = border_linewidth
