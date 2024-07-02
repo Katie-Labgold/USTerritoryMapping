@@ -48,12 +48,17 @@ map1_categorical_county <- function(data, join_var, fill_var, fill_color, fill_l
                              territory_label_color = "black",
                              title = "",
                              border_ids = NULL, border_color = NULL, border_linewidth = 1,
-                             state_color = "black", state_linewidth = 0.75,
+                             state_color = "black", state_linewidth = 1,
                              save.filepath){
   
   all.geo.data <- all.geo.co %>%
          mutate(GEOID = paste0(all.geo.co$STUSPS, all.geo.co$co)) %>%
          left_join(data, by = c("GEOID" = join_var))
+  
+  all.geo.state <- all.geo.data %>% 
+                    group_by(state, group) %>%
+                    dplyr::summarise() %>%
+                    ungroup()
   
   main.map <- all.geo.data %>%
     filter(group == "mainland") %>%
@@ -73,11 +78,19 @@ map1_categorical_county <- function(data, join_var, fill_var, fill_color, fill_l
          #caption = "Caption"
     ) +
     
+    ## Mainland County Highlight Borders ---
     geom_sf(
       data = all.geo.data[all.geo.data$group == "mainland" & all.geo.data$GEOID %in% border_ids, ],
       fill = NA,
       colour = border_color, 
       linewidth = border_linewidth
+    ) +
+    ## Mainland State Borders ---
+    geom_sf(
+      data = all.geo.state[all.geo.state$group == "mainland", ],
+      fill = NA,
+      colour = state_color, 
+      linewidth = state_linewidth
     ) +
     
     # Prevent ggplot from slightly expanding the map limits beyond the bounding box of the spatial objects
@@ -118,6 +131,15 @@ map1_categorical_county <- function(data, join_var, fill_var, fill_color, fill_l
       colour = border_color, 
       linewidth = border_linewidth
     ) +
+    
+    ## AK State Border ---
+    geom_sf(
+      data = all.geo.state[all.geo.state$group == "AK", ],
+      fill = NA,
+      colour = state_color, 
+      linewidth = state_linewidth
+    ) +
+    
     # Prevent ggplot from slightly expanding the map limits beyond the bounding box of the spatial objects
     coord_sf(expand = FALSE) +
     theme_void() +
@@ -148,6 +170,14 @@ map1_categorical_county <- function(data, join_var, fill_var, fill_color, fill_l
       fill = NA,
       colour = border_color, 
       linewidth = border_linewidth
+    ) +
+    
+    ## HI State Border ---
+    geom_sf(
+      data = all.geo.state[all.geo.state$group == "HI", ],
+      fill = NA,
+      colour = state_color, 
+      linewidth = state_linewidth
     ) +
     
     # Prevent ggplot from slightly expanding the map limits beyond the bounding box of the spatial objects
@@ -182,6 +212,14 @@ map1_categorical_county <- function(data, join_var, fill_var, fill_color, fill_l
       linewidth = border_linewidth
     ) +
     
+    ## GU Border ---
+    geom_sf(
+      data = all.geo.state[all.geo.state$group == "GU", ],
+      fill = NA,
+      colour = state_color, 
+      linewidth = state_linewidth
+    ) +
+    
     # Prevent ggplot from slightly expanding the map limits beyond the bounding box of the spatial objects
     coord_sf(expand = FALSE) +
     theme_void() +
@@ -212,6 +250,14 @@ map1_categorical_county <- function(data, join_var, fill_var, fill_color, fill_l
       fill = NA,
       colour = border_color, 
       linewidth = border_linewidth
+    ) +
+    
+    ## AS Border ---
+    geom_sf(
+      data = all.geo.state[all.geo.state$group == "AS", ],
+      fill = NA,
+      colour = state_color, 
+      linewidth = state_linewidth
     ) +
     
     # Prevent ggplot from slightly expanding the map limits beyond the bounding box of the spatial objects
@@ -246,6 +292,14 @@ map1_categorical_county <- function(data, join_var, fill_var, fill_color, fill_l
       linewidth = border_linewidth
     ) +
     
+    ## MP Border ---
+    geom_sf(
+      data = all.geo.state[all.geo.state$group == "MP", ],
+      fill = NA,
+      colour = state_color, 
+      linewidth = state_linewidth
+    ) +
+    
     # Prevent ggplot from slightly expanding the map limits beyond the bounding box of the spatial objects
     coord_sf(expand = FALSE) +
     theme_void() +
@@ -277,6 +331,15 @@ map1_categorical_county <- function(data, join_var, fill_var, fill_color, fill_l
       colour = border_color, 
       linewidth = border_linewidth
     ) +
+    
+    ## PR Border ---
+    geom_sf(
+      data = all.geo.state[all.geo.state$group == "PR", ],
+      fill = NA,
+      colour = state_color, 
+      linewidth = state_linewidth
+    ) +
+    
     # Prevent ggplot from slightly expanding the map limits beyond the bounding box of the spatial objects
     coord_sf(expand = FALSE) +
     theme_void() +
@@ -308,6 +371,14 @@ map1_categorical_county <- function(data, join_var, fill_var, fill_color, fill_l
       colour = border_color, 
       linewidth = border_linewidth
     ) +
+    ## VI stt stj Border ---
+    geom_sf(
+      data = all.geo.state[all.geo.state$group == "VI.stt_stj", ],
+      fill = NA,
+      colour = state_color, 
+      linewidth = state_linewidth
+    ) +
+    
     # Prevent ggplot from slightly expanding the map limits beyond the bounding box of the spatial objects
     coord_sf(expand = FALSE) +
     theme_void() +
@@ -338,6 +409,14 @@ map1_categorical_county <- function(data, join_var, fill_var, fill_color, fill_l
       colour = border_color, 
       linewidth = border_linewidth
     ) +
+    ## VI stx Border ---
+    geom_sf(
+      data = all.geo.state[all.geo.state$group == "VI.stx", ],
+      fill = NA,
+      colour = state_color, 
+      linewidth = state_linewidth
+    ) +
+    
     # Prevent ggplot from slightly expanding the map limits beyond the bounding box of the spatial objects
     coord_sf(expand = FALSE) +
     theme_void() +
