@@ -6,18 +6,20 @@
 #' `map2_categorical_county()` for choropleth mapping of territory labels at the county level.
 #' 
 #' @param data Data frame that already includes the fill variable as a factor. See example code/vignette for more detail.
-#' @param join_var Variable to join with two letter state/territory USPS code (e.g. VI for Virgin Islands).
+#' @param join_var Variable to join. Must be 5 number GEOID formatted as a character variable. See example code/vignette for more detail.
 #' @param fill_var Categorical mapping variable entered as "variable".
 #' @param fill_color Values for `scale_fill_manual()`. Recommended to prepare with labels, see example.
-#' @param fill_linewidth State and territory geometry border line width. Default linewidth = 0.8.
-#' @param fill_linecolor State and territory geometry border line color. Default color = "black".
+#' @param fill_linewidth County geometry border line width. Default linewidth = 0.5.
+#' @param fill_linecolor County geometry border line color. Default color = "gray50".
 #' @param legend_name Legend title entered as a string.
 #' @param inset_box_color Color of inset box for HI, AK, and territories. Set as "white" to remove border.
 #' @param territory_label_color Color of territory labels. Set as "white" to remove label.
 #' @param title Figure title entered as a string.
-#' @param border_ids List of state and territory two letter USPS codes for option to outline specific states and territories.
-#' @param border_color Color of optional state highlight border.
-#' @param border_linewidth Linewidth of optional state highlight border. Default linewidth = 1.
+#' @param border_ids List of county GEOIDs for option to outline specific states and territories.
+#' @param border_color Color of optional county highlight border.
+#' @param border_linewidth Linewidth of optional county highlight border. Default linewidth = 1.
+#' @param state_color Color of state outline. Default color = "black". Set to NULL to remove outline. 
+#' @param state_linewidth Linewidth of state outline. Default linewidth = 1.
 #' @param save.filepath File path for saving plot as "path/image.png".
 #' @import dplyr ggplot2 sf cowplot extrafont grid 
 #' @export
@@ -27,23 +29,27 @@
 #'                    "5% to <10%" = "#f768a1", 
 #'                    "10% or Greater" = "#7a0177")
 #'
-#' border <- c("OR", "WI", "VA", "VI")
+#'border <- c("13031", "13089", "13121")
 #'
-#' map1_categorical(data = census.uninsured19, 
-#'                 join_var = "STUSPS", 
-#'                 fill_var = "Percent.Cat", 
-#'                 fill_color = colors.census, 
-#'                 legend_name = "Percent Uninsured",
-#'                 title = "Figure 1. Percent Uninsured, Ages <19 Years",
-#'                 border_ids = border,
-#'                 border_color = "red",
-#'                 border_linewidth = 1,
-#'                 save.filepath = "saved-maps/map1-test.png")
+#'map1_categorical_county(data = census.uninsured19.co, 
+#'                        join_var = "GEOID", 
+#'                        fill_var = "Percent.Cat", 
+#'                        fill_color = colors.census, 
+#'                        fill_linewidth = 0.5, 
+#'                        fill_linecolor = "gray50",
+#'                        legend_name = "Percent Uninsured",
+#'                        title = "Figure 1. Percent Uninsured, Ages <19 Years",
+#'                        border_ids = border,
+#'                        border_color = "red",
+#'                        border_linewidth = 0.5,
+#'                        state_color = "black", 
+#'                        state_linewidth = 1,
+#'                        save.filepath = "saved-maps/map1-test-co-highlight.png")
 #'
               
 
 
-map1_categorical_county <- function(data, join_var, fill_var, fill_color, fill_linewidth = 0.8, fill_linecolor = "black",
+map1_categorical_county <- function(data, join_var, fill_var, fill_color, fill_linewidth = 0.5, fill_linecolor = "gray50",
                              legend_name = NULL, inset_box_color = "black",
                              territory_label_color = "black",
                              title = "",
