@@ -15,8 +15,8 @@
 acs5 <- load_variables(year = 2020, "acs5")
 dpvi <- load_variables(year = 2020, "dpvi")
 
-fips <- fips_codes %>%
-          mutate(county_name = paste0(county, ", ", state_name))
+fips_co <- fips_codes %>%
+            mutate(county_name = paste0(county, ", ", state_name))
 
 
 vars.acs <- c("B18135_002", "B18135_007", "B18135_012") # Estimate!!Total:!!Under 19 years:
@@ -24,7 +24,7 @@ vars.dpvi <- c("DP3_0071P") #Percent!!HEALTH INSURANCE COVERAGE STATUS!!Civilian
 
 states <- get_acs(year = 2020, output = "wide", variables = vars.acs, 
                         geography = "county", sumfile = "acs5") %>% # includes PR
-                    left_join(fips, by = c("NAME" = "county_name")) %>%
+                    left_join(fips_co, by = c("NAME" = "county_name")) %>%
                     mutate(
                       "Percent Ages 19 or Under with No Insurance" = round(((B18135_007E + B18135_012E)/B18135_002E)*100, 1),
                     STUSPS = state) %>%
@@ -64,14 +64,15 @@ census.co <- states %>%
             ),
             Percent.Cat = factor(Percent.Cat, levels = c("Less than 5%", "5% to <10%", "10% or Greater")))
 
-rm(states, VI, GU, MP, acs5, dpvi, AS, vars.acs, vars.dpvi, oconus.list)
+rm(states, VI, GU, MP, acs5, dpvi, AS, vars.acs, vars.dpvi, oconus.list.co)
 
-census.uninsured19 <- census
+census.uninsured19.co <- census.co %>% dplyr::select(-c("STUSPS"))
 
 # Join with all geo
 
 all.geo.census.co <- all.geo.co %>%
-                      left_join(census, by = c("STUSPS"))
+                      mutate(GEOID = paste0(STUSPS, co)) %>%
+                      left_join(census.co, by = c("GEOID"))
 
 
 ########################################################-
