@@ -14,6 +14,8 @@
 # Download and prep data for rbind
 acs5 <- load_variables(year = 2020, "acs5")
 dpvi <- load_variables(year = 2020, "dpvi")
+vi <- load_variables(year = 2010, "vi")
+
 
 fips_co <- fips_codes %>%
             mutate(county_name = paste0(county, ", ", state_name))
