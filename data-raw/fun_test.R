@@ -6,8 +6,10 @@ colors.census <- c("Less than 5%" = "#feebe2",
 
 border <- c("13031", "13089", "13121")
 
+
 map1_categorical_county(data = census.uninsured19.co, 
-                        join_var = "GEOID", 
+                        join_var = "GEOID",
+                        county_data_year = all.geo.co_2010, # testing 2010 geometry 
                         fill_var = "Percent.Cat", 
                         fill_color = colors.census, 
                         fill_linewidth = 0.5, 
@@ -19,6 +21,6 @@ map1_categorical_county(data = census.uninsured19.co,
                         border_linewidth = 0.5,
                         state_color = "black", 
                         state_linewidth = 1,
-                        save.filepath = "saved-maps/map1-test-co-highlight.png")
+                        save.filepath = "saved-maps/map1-test-co-highlight2010.png")
 
 
