@@ -128,7 +128,8 @@ colors.census <- c("Less than 5%" = "#feebe2",
 #                   save.filepath = "saved-maps/map2-cvd.png")
 
 ## -----------------------------------------------------------------------------
-tidycensus::fips_codes
+fips_county <- tidycensus::fips_codes
+head(fips_county)
 
 ## -----------------------------------------------------------------------------
 data(census.uninsured19.co)
