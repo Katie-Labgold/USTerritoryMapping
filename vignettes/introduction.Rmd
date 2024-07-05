@@ -263,5 +263,7 @@ map1_categorical_county(data = census.uninsured19.co,
                         title = "Figure 1. Percent Uninsured, Ages <19 Years",
                         state_color = "black", 
                         state_linewidth = 1,
-                        save.filepath = "saved-maps/map1-co-uninsure.png")
+                        save.filepath = "saved-maps/map1-uninsure-co.png")
 ```
+
+![](saved-maps/map1-uninsure-co.png){width=850px}
