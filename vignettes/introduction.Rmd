@@ -12,6 +12,8 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+
+library(tidycensus)
 ```
 
 # Introduction
@@ -58,9 +60,9 @@ We'll first join the dataset to the provided `fips_code` dataset to get the full
    
 
 ```{r}
-data("fips_codes")
+data("fips_codes_state")
 
-cdc.cvd <- fips_codes %>%
+cdc.cvd <- fips_codes_state %>%
               left_join(cdc.cvd, by = c("state" = "LocationAbbr")) %>%
               mutate(data.cat = factor(
                       case_when(
