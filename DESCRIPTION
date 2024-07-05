@@ -1,5 +1,5 @@
 Package: USTerritoryMapping
-Title: Simple categorical choropleth maps of US States, DC, and Territories
+Title: Simple categorical choropleth maps of US States, DC, and Territories at the state and county equivalent levels
 Version: 0.0.0.9000
 Authors@R: c(
     person(given = c("Labgold", "Katie"), email = "katie.labgold@alumni.emory.edu", role = c("aut", "cre")),
@@ -21,7 +21,7 @@ Authors@R: c(
     person("Pebesma", "Edzer", role = "ctb", comment = "Author and copyright holder of included sf fragments"),
     person("Walker", "Kyle", role = c("ctb", "cph"), comment = "Author and copyright holder of included tidycensus fragments")
     )
-Description: This package includes two functions for choropleth mapping a categorical variable at the US state and territory level. map1_categorical() allows for mapping of territory geometries, while map2_categorical() allows for mapping of territory labels.
+Description: This package includes functions for choropleth mapping a categorical variable at the US state/territory, and county equivalent levels. map1_categorical() allows for mapping of territory geometries, while map2_categorical() allows for mapping of territory labels for state/territory-level mapping. map1_categorical_county() is the county-level mapping equivalent to map1_categorical(). map2_categorical_county() is not yet available.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
