@@ -217,7 +217,8 @@ To map at the county-level, you will need to have a data frame with two columns:
   2. the five number county FIPS code (commonly labeled as GEOID) coded as a factor. The `tidycensus` package has a useful list that can be loaded and joined to the data frame as needed to facilitate #2.
   
 ```{r}
-tidycensus::fips_codes
+fips_county <- tidycensus::fips_codes
+head(fips_county)
 ```
 
 For this vignette, we'll be using one of the provided datasets `census.uninsured19`. `census.uninsured19.co` provides an example of a dataset with complete data for all US state and territory counties and county-equivalent units. It is already in the proper format for the provided package functions.
