@@ -5,7 +5,7 @@
 #' 
 #' @docType data
 #' 
-#' @usage data(fips_codes)
+#' @usage data(fips_codes_state)
 #' 
 #' @format A data frame with 57 observations (50 US States, D.C., 5 territories, and minor outlying islands) and 3 variables:
 #' \describe{
@@ -22,6 +22,6 @@
 #' @source <https://walker-data.com/tidycensus/>
 #' 
 #' @examples
-#' data(fips_codes)
-#' head(fips_codes$state)
-"fips_codes"
+#' data(fips_codes_state)
+#' head(fips_codes_state$state)
+"fips_codes_state"
