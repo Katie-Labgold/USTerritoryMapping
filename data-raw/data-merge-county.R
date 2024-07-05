@@ -70,6 +70,8 @@ rm(states, VI, GU, MP, acs5, dpvi, AS, vars.acs, vars.dpvi, oconus.list.co)
 
 census.uninsured19.co <- census.co %>% dplyr::select(-c("STUSPS"))
 
+#save(census.uninsured19.co, file = "data/census.uninsured19.co.rda")
+
 # Join with all geo
 
 all.geo.census.co <- all.geo.co %>%
