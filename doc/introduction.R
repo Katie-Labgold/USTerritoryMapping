@@ -1,8 +1,10 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+
+library(tidycensus)
 
 ## ----setup--------------------------------------------------------------------
 library(USTerritoryMapping)
@@ -17,9 +19,9 @@ table(census.uninsured19$Percent.Cat)
 head(census.uninsured19$STUSPS)
 
 ## -----------------------------------------------------------------------------
-data("fips_codes")
+data("fips_codes_state")
 
-cdc.cvd <- fips_codes %>%
+cdc.cvd <- fips_codes_state %>%
               left_join(cdc.cvd, by = c("state" = "LocationAbbr")) %>%
               mutate(data.cat = factor(
                       case_when(
@@ -42,7 +44,7 @@ colors.census <- c("Less than 5%" = "#feebe2",
                     "5% to <10%" = "#f768a1", 
                     "10% or Greater" = "#7a0177")
 
-## ---- warnings = FALSE, message = FALSE, eval = FALSE-------------------------
+## ----warnings = FALSE, message = FALSE, eval = FALSE--------------------------
 #  map1_categorical(data = census.uninsured19,
 #                   join_var = "STUSPS",
 #                   fill_var = "Percent.Cat",
@@ -52,7 +54,7 @@ colors.census <- c("Less than 5%" = "#feebe2",
 #                   title = "Figure 1. Percent Uninsured, Ages <19 Years",
 #                   save.filepath = "saved-maps/map1-uninsure.png")
 
-## ---- warnings = FALSE, message = FALSE, eval = FALSE-------------------------
+## ----warnings = FALSE, message = FALSE, eval = FALSE--------------------------
 #  border <- c("OR", "WI", "VA", "VI")
 #  
 #  map1_categorical(data = census.uninsured19,
@@ -66,7 +68,7 @@ colors.census <- c("Less than 5%" = "#feebe2",
 #                   border_linewidth = 1,
 #                   save.filepath = "saved-maps/map1-uninsure2.png")
 
-## ---- warnings = FALSE, message = FALSE, eval = FALSE-------------------------
+## ----warnings = FALSE, message = FALSE, eval = FALSE--------------------------
 #  colors.cdc <- c("Q1 (166 to < 198)" = "#ffffcc",
 #                   "Q2 (198 to < 215)" = "#a1dab4",
 #                   "Q3 (215 to < 248)" = "#41b6c4",
@@ -87,7 +89,7 @@ colors.census <- c("Less than 5%" = "#feebe2",
 #                   border_linewidth = 1.5,
 #                   save.filepath = "saved-maps/map1-cvd.png")
 
-## ---- warnings = FALSE, message = FALSE, eval = FALSE-------------------------
+## ----warnings = FALSE, message = FALSE, eval = FALSE--------------------------
 #  colors.census <- c("Less than 5%" = "#feebe2",
 #                      "5% to <10%" = "#f768a1",
 #                      "10% or Greater" = "#7a0177")
@@ -105,7 +107,7 @@ colors.census <- c("Less than 5%" = "#feebe2",
 #                   border_linewidth = 1,
 #                   save.filepath = "saved-maps/map2-uninsure.png")
 
-## ---- warnings = FALSE, message = FALSE, eval = FALSE-------------------------
+## ----warnings = FALSE, message = FALSE, eval = FALSE--------------------------
 #  colors.cdc <- c("Q1 (166 to < 198)" = "#ffffcc",
 #                   "Q2 (198 to < 215)" = "#a1dab4",
 #                   "Q3 (215 to < 248)" = "#41b6c4",
@@ -124,4 +126,34 @@ colors.census <- c("Less than 5%" = "#feebe2",
 #                   border_color = "red",
 #                   border_linewidth = 1.5,
 #                   save.filepath = "saved-maps/map2-cvd.png")
+
+## -----------------------------------------------------------------------------
+tidycensus::fips_codes
+
+## -----------------------------------------------------------------------------
+data(census.uninsured19.co)
+
+## -----------------------------------------------------------------------------
+class(census.uninsured19.co$Percent.Cat)
+table(census.uninsured19.co$Percent.Cat)
+head(census.uninsured19.co$GEOID)
+
+## -----------------------------------------------------------------------------
+colors.census <- c("Less than 5%" = "#feebe2", 
+                    "5% to <10%" = "#f768a1", 
+                    "10% or Greater" = "#7a0177")
+
+## ----warnings = FALSE, message = FALSE, eval = FALSE--------------------------
+#  map1_categorical_county(data = census.uninsured19.co,
+#                          join_var = "GEOID",
+#                          county_data_year = all.geo.co_2020,
+#                          fill_var = "Percent.Cat",
+#                          fill_color = colors.census,
+#                          fill_linewidth = 0.5,
+#                          fill_linecolor = "gray50",
+#                          legend_name = "Percent Uninsured",
+#                          title = "Figure 1. Percent Uninsured, Ages <19 Years",
+#                          state_color = "black",
+#                          state_linewidth = 1,
+#                          save.filepath = "saved-maps/map1-uninsure-co.png")
 

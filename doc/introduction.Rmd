@@ -12,6 +12,8 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+
+library(tidycensus)
 ```
 
 # Introduction
@@ -23,8 +25,10 @@ First load the package.
 library(USTerritoryMapping)
 ```
 
+# State & Territory-Level Mapping 
 
-# Prepare Data
+
+## Prepare Data
 
 To use this package, you will need to have a data frame with two columns:
 
@@ -56,9 +60,9 @@ We'll first join the dataset to the provided `fips_code` dataset to get the full
    
 
 ```{r}
-data("fips_codes")
+data("fips_codes_state")
 
-cdc.cvd <- fips_codes %>%
+cdc.cvd <- fips_codes_state %>%
               left_join(cdc.cvd, by = c("state" = "LocationAbbr")) %>%
               mutate(data.cat = factor(
                       case_when(
@@ -77,9 +81,9 @@ table(cdc.cvd$data.cat)
 class(cdc.cvd$data.cat)
 ```
 
-# Mapping US with Territory Geometries
+## Mapping US with Territory Geometries
 
-## Using Census Insurance Data
+### Using Census Insurance Data
 
 Start by defining the fill category colors with their factor labels.
 
@@ -123,7 +127,7 @@ map1_categorical(data = census.uninsured19,
 ![](saved-maps/map1-uninsure2.png){width=850px}
 
 
-## Using CDC Cardiovascular Disease Mortality Data
+### Using CDC Cardiovascular Disease Mortality Data
 
 Sometimes we may want to remove the inset box outline, which we can do by specifying `inset_box_color = "white"`. 
 
@@ -202,3 +206,64 @@ map2_categorical(data = cdc.cvd,
 ```
 
 ![](saved-maps/map2-cvd.png){width=850px}
+
+# County-Level Mapping
+
+## Prepare Data
+
+To map at the county-level, you will need to have a data frame with two columns:
+
+  1. a categorical variable coded as a factor 
+  2. the five number county FIPS code (commonly labeled as GEOID) coded as a factor. The `tidycensus` package has a useful list that can be loaded and joined to the data frame as needed to facilitate #2.
+  
+```{r}
+tidycensus::fips_codes
+```
+
+For this vignette, we'll be using one of the provided datasets `census.uninsured19`. `census.uninsured19.co` provides an example of a dataset with complete data for all US state and territory counties and county-equivalent units. It is already in the proper format for the provided package functions.
+
+```{r}
+data(census.uninsured19.co)
+```
+
+We can see that `census.uninsured19.co` has these two components: 
+    1. "Percent.Cat": the Percentage Ages 19 or Under with No Health Insurance categorized as a factor
+    2. "GEOID": the five number county FIPS code, coded as a factor.
+
+```{r}
+class(census.uninsured19.co$Percent.Cat)
+table(census.uninsured19.co$Percent.Cat)
+head(census.uninsured19.co$GEOID)
+```
+
+## Mapping US with Territory Geometries at the County (equivalent) Level
+
+### Using Census Insurance Data
+
+Start by defining the fill category colors with their factor labels.
+
+```{r}
+colors.census <- c("Less than 5%" = "#feebe2", 
+                    "5% to <10%" = "#f768a1", 
+                    "10% or Greater" = "#7a0177")
+```
+
+Then specify any required parameters of the function (see documentation for details). 
+
+Note that the default option for county geometry data year (`county_data_year`) is `all.geo.co_2020` which provides the 2020 county geometry. `all.geo.co_2010` can be used to map using the 2010 county geometry file.
+```{r, warnings = FALSE, message = FALSE, eval = FALSE}
+map1_categorical_county(data = census.uninsured19.co, 
+                        join_var = "GEOID",
+                        county_data_year = all.geo.co_2020,  
+                        fill_var = "Percent.Cat", 
+                        fill_color = colors.census, 
+                        fill_linewidth = 0.5, 
+                        fill_linecolor = "gray50",
+                        legend_name = "Percent Uninsured",
+                        title = "Figure 1. Percent Uninsured, Ages <19 Years",
+                        state_color = "black", 
+                        state_linewidth = 1,
+                        save.filepath = "saved-maps/map1-uninsure-co.png")
+```
+
+![](saved-maps/map1-uninsure-co.png){width=850px}
