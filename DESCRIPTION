@@ -21,7 +21,7 @@ Authors@R: c(
     person("Pebesma", "Edzer", role = "ctb", comment = "Author and copyright holder of included sf fragments"),
     person("Walker", "Kyle", role = c("ctb", "cph"), comment = "Author and copyright holder of included tidycensus fragments")
     )
-Description: This package includes functions for choropleth mapping a categorical variable at the US state/territory, and county equivalent levels. map1_categorical() allows for mapping of territory geometries, while map2_categorical() allows for mapping of territory labels for state/territory-level mapping. map1_categorical_county() is the county-level mapping equivalent to map1_categorical(). map2_categorical_county() is not yet available.
+Description: This package includes functions for choropleth mapping a categorical variable at the US state/territory, and county equivalent levels. map1_categorical() allows for mapping of territory geometries, while map2_categorical() allows for mapping of territory labels for state/territory-level mapping. map1_categorical_county() is the county-level mapping equivalent to map1_categorical(). 
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
