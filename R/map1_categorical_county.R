@@ -7,7 +7,7 @@
 #' 
 #' @param data Data frame that already includes the fill variable as a factor. See example code/vignette for more detail.
 #' @param join_var Variable to join. Must be 5 number GEOID formatted as a character variable. See example code/vignette for more detail.
-#' @param county_data_year Package data frame of county geometry. Two options: `county2010` for 2010 Counties and `county2020` for 2020 counties. Default `county2020`.
+#' @param county_data_year Package data frame of county geometry. Two options: "2010" for 2010 Counties and "2020 for 2020 counties. Default "2020".
 #' @param fill_var Categorical mapping variable entered as "variable".
 #' @param fill_color Values for `scale_fill_manual()`. Recommended to prepare with labels, see example.
 #' @param fill_linewidth County geometry border line width. Default linewidth = 0.5.
@@ -50,7 +50,7 @@
               
 
 
-map1_categorical_county <- function(data, join_var, county_data_year = county2020,
+map1_categorical_county <- function(data, join_var, county_data_year = "2020",
                                     fill_var, fill_color, fill_linewidth = 0.5, fill_linecolor = "gray50",
                              legend_name = NULL, inset_box_color = "black",
                              territory_label_color = "black",
@@ -59,10 +59,9 @@ map1_categorical_county <- function(data, join_var, county_data_year = county202
                              state_color = "black", state_linewidth = 1,
                              save.filepath){
   
-  county2020 <- all.geo.co_2020
-  county2010 <- all.geo.co_2010
+  all.geo.co <- all.geo.co %>% filter(year == county_data_year)
   
-  all.geo.data <- county_data_year %>%
+  all.geo.data <- all.geo.co %>%
          mutate(GEOID = paste0(all.geo.co$STUSPS, all.geo.co$co)) %>%
          left_join(data, by = c("GEOID" = join_var))
   
