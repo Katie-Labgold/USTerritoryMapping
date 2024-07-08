@@ -7,7 +7,7 @@
 map1_categorical_county(
   data,
   join_var,
-  county_data_year = all.geo.co_2020,
+  county_data_year = county2020,
   fill_var,
   fill_color,
   fill_linewidth = 0.5,
