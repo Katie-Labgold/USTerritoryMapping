@@ -7,7 +7,7 @@
 #' 
 #' @param data Data frame that already includes the fill variable as a factor. See example code/vignette for more detail.
 #' @param join_var Variable to join. Must be 5 number GEOID formatted as a character variable. See example code/vignette for more detail.
-#' @param county_data_year Package data frame of county geometry. Two options: `all.geo.co_2010` for 2010 Counties and `all.geo.co_2020` for 2020 counties. Default `all.geo.co_2020`.
+#' @param county_data_year Package data frame of county geometry. Two options: `county2010` for 2010 Counties and `county2020` for 2020 counties. Default `county2020`.
 #' @param fill_var Categorical mapping variable entered as "variable".
 #' @param fill_color Values for `scale_fill_manual()`. Recommended to prepare with labels, see example.
 #' @param fill_linewidth County geometry border line width. Default linewidth = 0.5.
