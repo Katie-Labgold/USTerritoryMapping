@@ -22,7 +22,7 @@ map1_categorical(data = census.uninsured19,
 
 map1_categorical_county(data = census.uninsured19.co, 
                         join_var = "GEOID",
-                        county_data_year = all.geo.co_2010, # testing 2010 geometry 
+                        county_data_year = county2010, # testing 2010 geometry 
                         fill_var = "Percent.Cat", 
                         fill_color = colors.census, 
                         fill_linewidth = 0.5, 

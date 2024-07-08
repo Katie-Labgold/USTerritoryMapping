@@ -50,7 +50,7 @@
               
 
 
-map1_categorical_county <- function(data, join_var, county_data_year,
+map1_categorical_county <- function(data, join_var, county_data_year = county2020,
                                     fill_var, fill_color, fill_linewidth = 0.5, fill_linecolor = "gray50",
                              legend_name = NULL, inset_box_color = "black",
                              territory_label_color = "black",
@@ -59,9 +59,10 @@ map1_categorical_county <- function(data, join_var, county_data_year,
                              state_color = "black", state_linewidth = 1,
                              save.filepath){
   
-  all.geo.co <- county_data_year
+  county2020 <- all.geo.co_2020
+  county2010 <- all.geo.co_2010
   
-  all.geo.data <- all.geo.co %>%
+  all.geo.data <- county_data_year %>%
          mutate(GEOID = paste0(all.geo.co$STUSPS, all.geo.co$co)) %>%
          left_join(data, by = c("GEOID" = join_var))
   
