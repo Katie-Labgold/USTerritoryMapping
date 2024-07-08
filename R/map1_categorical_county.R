@@ -50,7 +50,7 @@
               
 
 
-map1_categorical_county <- function(data, join_var, county_data_year = all.geo.co_2020,
+map1_categorical_county <- function(data, join_var, county_data_year,
                                     fill_var, fill_color, fill_linewidth = 0.5, fill_linecolor = "gray50",
                              legend_name = NULL, inset_box_color = "black",
                              territory_label_color = "black",
