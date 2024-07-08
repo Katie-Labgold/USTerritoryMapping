@@ -7,7 +7,7 @@
 map1_categorical_county(
   data,
   join_var,
-  county_data_year = county2020,
+  county_data_year = "2020",
   fill_var,
   fill_color,
   fill_linewidth = 0.5,
@@ -29,7 +29,7 @@ map1_categorical_county(
 
 \item{join_var}{Variable to join. Must be 5 number GEOID formatted as a character variable. See example code/vignette for more detail.}
 
-\item{county_data_year}{Package data frame of county geometry. Two options: \code{all.geo.co_2010} for 2010 Counties and \code{all.geo.co_2020} for 2020 counties. Default \code{all.geo.co_2020}.}
+\item{county_data_year}{Package data frame of county geometry. Two options: "2010" for 2010 Counties and "2020 for 2020 counties. Default "2020".}
 
 \item{fill_var}{Categorical mapping variable entered as "variable".}
 
