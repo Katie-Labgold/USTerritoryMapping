@@ -147,7 +147,7 @@ colors.census <- c("Less than 5%" = "#feebe2",
 ## ----warnings = FALSE, message = FALSE, eval = FALSE--------------------------
 #  map1_categorical_county(data = census.uninsured19.co,
 #                          join_var = "GEOID",
-#                          county_data_year = all.geo.co_2020,
+#                          county_data_year = "2020",
 #                          fill_var = "Percent.Cat",
 #                          fill_color = colors.census,
 #                          fill_linewidth = 0.5,
