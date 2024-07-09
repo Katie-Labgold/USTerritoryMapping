@@ -2,7 +2,7 @@
 title: "Introduction to the USTerritoryMapping Package"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{introduction}
+  %\VignetteIndexEntry{Introduction to the USTerritoryMapping Package}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -223,7 +223,7 @@ head(fips_county)
 
 For this vignette, we'll be using one of the provided dataset `census.uninsured19.co`. `census.uninsured19.co` provides an example of a dataset with complete data for all US state and territory counties and county-equivalent units. It is already in the proper format for the provided package functions.
 
-**County-level data preparation note: If your dataset does not have complete data for all US state and territory counties, see the data preparation steps exemplified in the state and territory-level data preparation example above (`cdc.cvd` data). The same steps apply, but using the `fips_county` data for the join to obtain all county-level geometry ID's.** 
+*County-level data preparation note: If your dataset does not have complete data for all US state and territory counties, see the data preparation steps exemplified in the state and territory-level data preparation example above (`cdc.cvd` data). The same steps apply, but using the `fips_county` data for the join to obtain all county-level geometry ID's.*
 
 ```{r}
 data(census.uninsured19.co)
