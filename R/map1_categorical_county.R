@@ -16,6 +16,8 @@
 #' @param legend_face Legend title face. Uses standard ggplot2 element_text face options (e.g.,"plain", "italic", "bold", "bold.italic").
 #' @param legend_title_size Legend title size. Default = 16. 
 #' @param legend_text_size Legend text size. Default = 14.
+#' @param legend_position.x Custom legend position x value. Default = 0.93.
+#' @param legend_position.y Custom legend position y value. Default = 1.23.
 #' @param inset_box_color Color of inset box for HI, AK, and territories. Set as "white" to remove border.
 #' @param territory_label_color Color of territory labels. Set as "white" to remove label.
 #' @param title Figure title entered as a string.
@@ -57,6 +59,7 @@ map1_categorical_county <- function(data, join_var, county_data_year = "2020",
                                     fill_var, fill_color, fill_linewidth = 0.5, fill_linecolor = "gray50",
                              legend_name = NULL, legend_face = "plain", 
                              legend_title_size = 16, legend_text_size = 14,
+                             legend_position.x = 0.93, legend_position.y = 1.23,
                              inset_box_color = "black",
                              territory_label_color = "black",
                              title = "",
@@ -115,7 +118,7 @@ map1_categorical_county <- function(data, join_var, county_data_year = "2020",
       # legend.justification defines the edge of the legend that the legend.position coordinates refer to
       legend.justification = c(0, 1),
       # Set the legend flush with the left side of the plot, and just slightly below the top of the plot
-      legend.position = c(0.93, 1.23)
+      legend.position = c(legend_position.x, legend_position.y) #c(0.93, 1.23)
     ) +
     theme(
       plot.background = element_rect(fill = "white", colour = "white"),
