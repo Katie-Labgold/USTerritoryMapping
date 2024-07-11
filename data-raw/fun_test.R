@@ -16,12 +16,12 @@ map1_categorical(data = census.uninsured19,
                  legend_name = "Percent Uninsured",
                  territory_label_color = "black",
                  title = "Figure 1. Percent Uninsured, Ages <19 Years",
-                 save.filepath = "saved-maps/map1-uninsure-2024-07.png")
+                 save.filepath = "saved-maps/map1-uninsure-2024-07-10.png")
 
 
 map1_categorical_county(data = census.uninsured19.co, 
                         join_var = "GEOID",
-                        county_data_year = "2020", # testing 2010 geometry 
+                        county_data_year = "2010", # testing 2010 geometry 
                         fill_var = "Percent.Cat", 
                         fill_color = colors.census, 
                         fill_linewidth = 0.5, 
@@ -33,6 +33,6 @@ map1_categorical_county(data = census.uninsured19.co,
                         #border_linewidth = 0.5,
                         state_color = "black", 
                         state_linewidth = 1,
-                        save.filepath = "saved-maps/map2020-2024-07.png")
+                        save.filepath = "saved-maps/map2010-2024-07-10.png")
 
 
