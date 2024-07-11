@@ -16,6 +16,8 @@ map1_categorical_county(
   legend_face = "plain",
   legend_title_size = 16,
   legend_text_size = 14,
+  legend_position.x = 0.93,
+  legend_position.y = 1.23,
   inset_box_color = "black",
   territory_label_color = "black",
   title = "",
@@ -49,6 +51,10 @@ map1_categorical_county(
 \item{legend_title_size}{Legend title size. Default = 16.}
 
 \item{legend_text_size}{Legend text size. Default = 14.}
+
+\item{legend_position.x}{Custom legend position x value. Default = 0.93.}
+
+\item{legend_position.y}{Custom legend position y value. Default = 1.23.}
 
 \item{inset_box_color}{Color of inset box for HI, AK, and territories. Set as "white" to remove border.}
 
