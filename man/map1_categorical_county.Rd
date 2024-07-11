@@ -13,6 +13,9 @@ map1_categorical_county(
   fill_linewidth = 0.5,
   fill_linecolor = "gray50",
   legend_name = NULL,
+  legend_face = "plain",
+  legend_title_size = 16,
+  legend_text_size = 14,
   inset_box_color = "black",
   territory_label_color = "black",
   title = "",
@@ -40,6 +43,12 @@ map1_categorical_county(
 \item{fill_linecolor}{County geometry border line color. Default color = "gray50".}
 
 \item{legend_name}{Legend title entered as a string.}
+
+\item{legend_face}{Legend title face. Uses standard ggplot2 element_text face options (e.g.,"plain", "italic", "bold", "bold.italic").}
+
+\item{legend_title_size}{Legend title size. Default = 16.}
+
+\item{legend_text_size}{Legend text size. Default = 14.}
 
 \item{inset_box_color}{Color of inset box for HI, AK, and territories. Set as "white" to remove border.}
 

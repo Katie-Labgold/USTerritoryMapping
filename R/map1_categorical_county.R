@@ -14,6 +14,8 @@
 #' @param fill_linecolor County geometry border line color. Default color = "gray50".
 #' @param legend_name Legend title entered as a string.
 #' @param legend_face Legend title face. Uses standard ggplot2 element_text face options (e.g.,"plain", "italic", "bold", "bold.italic").
+#' @param legend_title_size Legend title size. Default = 16. 
+#' @param legend_text_size Legend text size. Default = 14.
 #' @param inset_box_color Color of inset box for HI, AK, and territories. Set as "white" to remove border.
 #' @param territory_label_color Color of territory labels. Set as "white" to remove label.
 #' @param title Figure title entered as a string.
@@ -53,7 +55,8 @@
 
 map1_categorical_county <- function(data, join_var, county_data_year = "2020",
                                     fill_var, fill_color, fill_linewidth = 0.5, fill_linecolor = "gray50",
-                             legend_name = NULL, legend_face = "plain",
+                             legend_name = NULL, legend_face = "plain", 
+                             legend_title_size = 16, legend_text_size = 14,
                              inset_box_color = "black",
                              territory_label_color = "black",
                              title = "",
@@ -118,8 +121,8 @@ map1_categorical_county <- function(data, join_var, county_data_year = "2020",
       plot.background = element_rect(fill = "white", colour = "white"),
       plot.title = element_text(family = "Arial", size = 25, face = "bold", 
                                 margin = margin(b = 50), hjust = -0.2),
-      legend.title = element_text(family = "Arial", size = 16, face = legend_face),
-      legend.text = element_text(family = "Arial", size = 14),
+      legend.title = element_text(family = "Arial", size = legend_title_size, face = legend_face),
+      legend.text = element_text(family = "Arial", size = legend_text_size),
       #plot.caption = element_text(family = "Arial", vjust = -1, hjust = 1, face = "italic"),
       plot.margin = unit(c(t = 2, r = 5.5, b = 2.5, l = 5.5), "cm") # testing different margins
     )
