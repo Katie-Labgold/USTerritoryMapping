@@ -21,6 +21,9 @@
 #' @param inset_box_color Color of inset box for HI, AK, and territories. Set as "white" to remove border.
 #' @param territory_label_color Color of territory labels. Set as "white" to remove label.
 #' @param title Figure title entered as a string.
+#' @param title_size Figure title size. Default 25.
+#' @param caption Figure caption entered as a string.
+#' @param caption_size Figure caption size. Default = 11.
 #' @param border_ids List of county GEOIDs for option to outline specific states and territories.
 #' @param border_color Color of optional county highlight border.
 #' @param border_linewidth Linewidth of optional county highlight border. Default linewidth = 1.
@@ -63,6 +66,9 @@ map1_categorical_county <- function(data, join_var, county_data_year = "2020",
                              inset_box_color = "black",
                              territory_label_color = "black",
                              title = "",
+                             title_size = 25,
+                             caption = "",
+                             caption_size = 11,
                              border_ids = NULL, border_color = NULL, border_linewidth = 1,
                              state_color = "black", state_linewidth = 1,
                              save.filepath){
@@ -93,7 +99,9 @@ map1_categorical_county <- function(data, join_var, county_data_year = "2020",
                       drop = FALSE) +
     
     labs(title = title,
-         #caption = "Caption"
+         #subtitle = subtitle,
+         #caption = caption
+         NULL
     ) +
     
     ## Mainland County Highlight Borders ---
@@ -122,10 +130,11 @@ map1_categorical_county <- function(data, join_var, county_data_year = "2020",
     ) +
     theme(
       plot.background = element_rect(fill = "white", colour = "white"),
-      plot.title = element_text(family = "Arial", size = 25, face = "bold", 
+      plot.title = element_text(family = "Arial", size = title_size, face = "bold", #size 25
                                 margin = margin(b = 50), hjust = -0.2),
       legend.title = element_text(family = "Arial", size = legend_title_size, face = legend_face),
       legend.text = element_text(family = "Arial", size = legend_text_size),
+      #plot.subtitle = element_text(family = "Arial", size = subtitle_size),
       #plot.caption = element_text(family = "Arial", vjust = -1, hjust = 1, face = "italic"),
       plot.margin = unit(c(t = 2, r = 5.5, b = 2.5, l = 5.5), "cm") # testing different margins
     )
@@ -467,6 +476,8 @@ map1_categorical_county <- function(data, join_var, county_data_year = "2020",
     draw_label("AS", x = 0.52, y = 0.034, fontface = "bold", color = territory_label_color) +
     draw_label("VI", x = 0.893, y = 0.05, fontface = "bold", color = territory_label_color) +
     draw_label("PR", x = 0.89, y = 0.2, fontface = "bold", color = territory_label_color) +
+    draw_label(caption, x = 0.54, y = 0.005, hjust = 0, vjust = 0,
+               size = caption_size, fontface = "italic", color = "black") +
     # Adding AK
     draw_plot(
       {
